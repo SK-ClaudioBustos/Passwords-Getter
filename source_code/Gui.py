@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QFont, QIcon
-from PyQt5.QtWidgets import QApplication,QWidget,QTableWidget,QVBoxLayout,QLabel,QPushButton,QTableWidgetItem,QMessageBox
+from PyQt5.QtWidgets import QApplication,QWidget,QTableWidget,QVBoxLayout,QLabel,QPushButton,QTableWidgetItem,QMessageBox,QHeaderView
 import get_passwords as gp
 import sys
 import clipboard
@@ -29,6 +29,8 @@ class Aplicacion(QWidget):
 
         self.table = QTableWidget()
         self.table.itemSelectionChanged.connect(self.item_selected)
+        self.table.verticalHeader().setVisible(False)
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table.setStyleSheet("""background-color: black;
         color: grey;
         border-style: double;
